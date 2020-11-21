@@ -1,0 +1,30 @@
+{
+  "attributes": [
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "name": "email",
+      "primary_key?": false,
+      "references": null,
+      "type": "text"
+    },
+    {
+      "allow_nil?": false,
+      "default": "nil",
+      "name": "id",
+      "primary_key?": true,
+      "references": null,
+      "type": "binary_id"
+    }
+  ],
+  "base_filter": null,
+  "hash": "98802DB900DF0CFDD073618B30588FB9B83CCEC05F145B4EB06EBB28C482531D",
+  "identities": [],
+  "multitenancy": {
+    "attribute": null,
+    "global": null,
+    "strategy": null
+  },
+  "repo": "Elixir.MyApp.Repo",
+  "table": "users"
+}

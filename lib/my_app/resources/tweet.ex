@@ -1,6 +1,11 @@
 # in lib/my_app/resources/tweet.ex
 defmodule MyApp.Tweet do
-  use Ash.Resource, data_layer: Ash.DataLayer.Ets
+  use Ash.Resource, data_layer: AshPostgres.DataLayer
+
+  postgres do
+    table "tweets"
+    repo MyApp.Repo
+  end
 
   attributes do
     uuid_primary_key :id

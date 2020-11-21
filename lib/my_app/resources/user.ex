@@ -1,16 +1,20 @@
 # in lib/my_app/resources/user.ex
 defmodule MyApp.User do
-  use Ash.Resource, data_layer: Ash.DataLayer.Ets
+ use Ash.Resource, data_layer: AshPostgres.DataLayer
+
+  postgres do
+    table "users"
+    repo MyApp.Repo
+  end
 
   attributes do
     attribute :email, :string,
       allow_nil?: false,
       constraints: [
         match: ~r/^[\w.!#$%&’*+\-\/=?\^`{|}~]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*$/i
-      ],
-      primary_key?: true
+      ]
 
-    attribute :id, :uuid, default: &Ecto.UUID.generate/0
+      uuid_primary_key :id
   end
 
   actions do
