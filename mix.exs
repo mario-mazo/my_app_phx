@@ -33,6 +33,7 @@ defmodule MyApp.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:ash_json_api, "~> 0.24.1"},
       {:ash_postgres, "~> 0.25.5"},
       {:ash, "~> 1.24"},
       {:phoenix, "~> 1.5.6"},

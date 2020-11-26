@@ -1,12 +1,14 @@
 defmodule MyAppWeb.Router do
   use MyAppWeb, :router
-
+  require AshJsonApi
+ 
   pipeline :api do
     plug :accepts, ["json"]
   end
 
-  scope "/api", MyAppWeb do
+  scope "/api" do
     pipe_through :api
+    AshJsonApi.forward("/", MyApp.Api)
   end
 
   # Enables LiveDashboard only for development

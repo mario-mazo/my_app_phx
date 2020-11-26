@@ -10,6 +10,10 @@ use Mix.Config
 config :my_app,
   ecto_repos: [MyApp.Repo]
 
+config :mime, :types, %{
+  "application/vnd.api+json" => ["json"]
+}  
+
 # Configures the endpoint
 config :my_app, MyAppWeb.Endpoint,
   url: [host: "localhost"],

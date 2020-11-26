@@ -1,7 +1,24 @@
 # in lib/my_app/resources/user.ex
 defmodule MyApp.User do
- use Ash.Resource, data_layer: AshPostgres.DataLayer
+  use Ash.Resource, data_layer: AshPostgres.DataLayer,
+    extensions: [
+      AshJsonApi.Resource
+    ]
 
+  json_api do
+    type "user"
+
+    routes do
+      base "/users"
+
+      get :read
+      index :read
+      post :create 
+      patch :update
+      delete :destroy
+    end
+  end
+  
   postgres do
     table "users"
     repo MyApp.Repo
